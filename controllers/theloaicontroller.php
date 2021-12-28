@@ -11,6 +11,7 @@ if ($action=='index')
 if($action=='them'){
     $id_theloai=trim($_POST['id_theloai']);
     $tentheloai=trim($_POST['tentheloai']);
+    $data=$theloai->kiemtrathem($id_theloai,$tentheloai);
     if($data==0)
     {
         $data=$theloai->insert($id_theloai,$tentheloai);
