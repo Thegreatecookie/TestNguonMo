@@ -50,4 +50,13 @@ if($action=='xulysua')
         }
     }
 }
+if ($action=='delete')
+{
+  $id_theloai= isset($_GET['id'])?$_GET['id']:'';
+  if($id_theloai!='')
+  {
+    $data=$theloai->delete($id_theloai);
+  }
+  header('location: ./index.php?controller=theloaicontroller&action=index');   
+}
 ?>
