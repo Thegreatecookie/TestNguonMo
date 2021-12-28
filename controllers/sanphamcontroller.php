@@ -41,6 +41,16 @@ if($action=='xulysua')
     $data=$sanpham->suaSP($id_dianhac,$tendianhac,$mota,$gia,$hinh,$id_theloai);
     header('location: ./index.php?controller=sanphamcontroller&action=index');
 }
+
+if($action=='delete')
+{
+  $id_dianhac= isset($_GET['id'])?$_GET['id']:'';
+  if($id_dianhac!='')
+  {
+    $data=$sanpham->delete($id_dianhac);
+    header('location: ./index.php?controller=sanphamcontroller&action=index');
+  }
+}
 ?>
 
 
