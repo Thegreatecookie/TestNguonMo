@@ -32,4 +32,14 @@ if($action=='xulysua')
     $data=$nhac->suaNhac($tennhac,$video,$tentacgia);
     header('location: ./index.php?controller=nhaccontroller&action=index');
 }
+
+if($action=='delete')
+{
+  $id_nhac= isset($_GET['id'])?$_GET['id']:'';
+  if($id_nhac!='')
+  {
+    $data=$nhac->delete($id_nhac);
+    header('location: ./index.php?controller=nhaccontroller&action=index');
+  }
+}
 ?>
