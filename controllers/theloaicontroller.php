@@ -11,9 +11,14 @@ if ($action=='index')
 if($action=='them'){
     $id_theloai=trim($_POST['id_theloai']);
     $tentheloai=trim($_POST['tentheloai']);
-    
+    if($data==0)
+    {
         $data=$theloai->insert($id_theloai,$tentheloai);
         header('location: ./index.php?controller=theloaicontroller&action=index');
+    }else{
+        echo '<script language="javascript">window.location="index.php?controller=theloaicontroller";alert("Bị trùng mã danh mục hoặc tên danh mục!"); </script>';
+        die ();
+    }
 }
 
 ?>
