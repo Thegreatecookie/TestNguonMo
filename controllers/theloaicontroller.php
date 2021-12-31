@@ -22,41 +22,4 @@ if($action=='them'){
     }
 }
 
-if($action=='sua')
-{   
-    $id_theloai = isset($_GET['id'])?$_GET['id']:'';
-    $data =$theloai->hiensua($id_theloai);
-    include './views/theloai/suatheloai.php';
-}
-
-if($action=='xulysua')
-{
-   if($_SERVER['REQUEST_METHOD']=="POST")
-    {
-        $errors=array();
-        if(empty($_POST['tentheloai']))
-        {
-            $errors['tentheloai'] = "Không được để trống tên";
-            $id_theloai = isset($_GET['id'])?$_GET['id']:'';
-            $data =$theloai->hiensua($id_theloai);
-            include './views/theloai/suatheloai.php';
-        }else{
-           $tentheloai=$_POST['tentheloai'];
-        }      
-        if(empty($errors))
-        {
-            $data=$theloai->suatl($tentheloai);
-            header('location: ./index.php?controller=theloaicontroller&action=index');
-        }
-    }
-}
-if ($action=='delete')
-{
-  $id_theloai= isset($_GET['id'])?$_GET['id']:'';
-  if($id_theloai!='')
-  {
-    $data=$theloai->delete($id_theloai);
-  }
-  header('location: ./index.php?controller=theloaicontroller&action=index');   
-}
 ?>
